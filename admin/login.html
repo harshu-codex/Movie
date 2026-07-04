@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Bootstrap Css -->
+    <link rel="stylesheet" href="../assets/Bootstrap/css/bootstrap.min.css">
+    <!-- Common Css -->
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+    <main>
+        <section class="m-auto h-100 p-auto">
+            <div class="modal-posi">
+                <div class="user-box">
+                    <div class="text-center mb-4 pb-1">
+                        <h2 class="fs-3 fw-bloder mb-2 text-info">Welcome Back</h2>
+                    </div>
+                    <form action="">
+                        <div class="mb-4">
+                            <label class="form-lable" for="login-email">Email Address</label>
+                            <input type="email" id="login-email"
+                                class="form-controll"
+                                placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-lable" for="login-password">Password</label>
+                            <input type="password" id="login-password"
+                                class="form-controll"
+                                placeholder="Enter your password" required>
+                        </div>
+                        <div class="mb-4 d-flex justify-content-between align-items-center">
+                            <div>
+                                <input type="checkbox" id="remember-me">
+                                <label class="d-inline m-1 fw-medium mb-2" for="remember-me">Remember me</label>
+                            </div>
+                            <a href="#" class="text-info ms-3 text-decoration-none">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="btn bg-primary text-light w-100 p-2 fs-6 mt-2">Sign In</button>
+                    </form>
+                    <div class="user-footer text-center mt-3 pt-1 text-danger">
+                        <p>Don't have an account? <a href="#" class="text-info text-decoration-none fw-medium">Sign up
+                                here</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="../assets/Bootstrap/js/bootstrap.bundle.min.js"></script>
+    </main>
+</body>
+
+
+</html>

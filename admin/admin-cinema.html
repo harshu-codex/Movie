@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMax - Book Your Movie Tickets</title>
+    <!-- Bootstrap Css -->
+    <link rel="stylesheet" href="../assets/Bootstrap/css/bootstrap.min.css">
+    <!-- Common Css -->
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../assets/Font Awesome/css/all.min.css">
+</head>
+
+<body>
+    <!-- Left Side Header -->
+    <aside class="sidebar">
+        <a href="#" class="logo">Cine<span>Max</span></a>
+        <nav class="nav-menu">
+            <ul>
+                <li><a class="active" href="#Cinemas"><i class="fas fa-map-marker-alt "></i><span>Cinemas</span></a>
+                </li>
+                <li><a href="#"><i class="fas fa-film"></i> <span>Movies</span></a></li>
+                <li><a href="#"><i class="fas fa-chair"></i><span>Seats</span></a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+            </ul>
+        </nav>
+        <div class="user-profile">
+            <div class="profile">
+                <div class="profile-img">A</div>
+                <div class="profile-info">
+                    <h4>Admin User</h4>
+                    <p>admin@cinema.com</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <main>
+        <!-- Cinemas Section -->
+        <section id="Cinemas">
+            <div class="title-head">
+                <h2 class="title-logo">Cinemas</h2>
+                <button type="button" class="btn title-button" id="addCinemaBtn"><a href="#cinemaModal"
+                        class="text-decoration-none text-info">+ Add Cinema</a></button>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CID</th>
+                            <th>Cinema</th>
+                            <th>Location</th>
+                            <th>Facilities</th>
+                            <th>Poster</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cinemaTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Add Modal -->
+        <section>
+            <div class="modal mt-5" id="cinemaModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Add New Cinema</h3>
+                        <button class="close-btn" id="closeCinemaModal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="cinemaForm">
+                            <div class="form-group">
+                                <label class="form-lable" for="cinemaName">Cinema Name</label>
+                                <input type="text" class="form-controll" id="cinemaName" placeholder="Enter cinema name"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-lable" for="cinemaLocation">Location</label>
+                                <input type="text" class="form-controll" id="cinemaLocation"
+                                    placeholder="Enter cinema location" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-lable">Facilities</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="facility1" value="3D">
+                                        <label class="text-info" for="facility1">3D Projection</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="facility2" value="Dolby">
+                                        <label class="text-info" for="facility2">Dolby Sound</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="facility3" value="Food">
+                                        <label class="text-info" for="facility3">Food Court</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="facility4" value="Parking">
+                                        <label class="text-info" for="facility4">Free Parking</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="facility5" value="Wheelchair">
+                                        <label class="text-info" for="facility5">Wheelchair Access</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="file" id="cinemaImage" accept="image/*" required>
+                                <label class="form-lable">Cinema Image</label>
+                                <div class="image-upload" id="cinemaImageUpload">
+                                    <p id="uploadText" class="text-white">Click to upload Cinema image</p>
+                                    <img id="preview" alt="Uploaded image preview">
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btnn btn-secondry" id="cancelCinema">Cancel</button>
+                                <button type="submit" class="btnn btn-primar">Add Cinema</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+
+
+    </main>
+    <script src="../assets/Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/Font Awesome/js/all.min.js"></script>
+    <script>
+        // Sample data for demonstration
+        let cinemas = [
+            {
+                id: 1,
+                name: "CineMax Downtown",
+                location: "123 Main Street, City Center",
+                facilities: ["3D", "Dolby", "Food"],
+                image: null
+            },
+        ];
+        // Event Listeners
+        addCinemaBtn.addEventListener('click', () => {
+            cinemaModal.style.display = 'flex';
+        });
+
+        closeCinemaModal.addEventListener('click', () => {
+            cinemaModal.style.display = 'none';
+        });
+
+        cancelCinema.addEventListener('click', () => {
+            cinemaModal.style.display = 'none';
+        });
+
+        cinemaImageUpload.addEventListener('click', () => {
+            cinemaImage.click();
+        });
+
+        cinemaForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            addCinema();
+        });
+
+        // Functions
+        function addCinema() {
+            const name = document.getElementById('cinemaName').value;
+            const location = document.getElementById('cinemaLocation').value;
+
+            // Get selected facilities
+            const facilities = [];
+            const facilityCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            facilityCheckboxes.forEach(checkbox => {
+                facilities.push(checkbox.value);
+            });
+
+            // Get image (in a real app, you would upload this to a server)
+            const imageFile = cinemaImage.files[0];
+            let imageUrl = '';
+            if (imageFile) {
+                imageUrl = URL.createObjectURL(imageFile);
+            }
+
+            const newCinema = {
+                id: cinemas.length > 0 ? Math.max(...cinemas.map(c => c.id)) + 1 : 1,
+                name,
+                location,
+                facilities,
+                image: imageUrl
+            };
+
+            cinemas.push(newCinema);
+            renderTable();
+            cinemaForm.reset();
+            cinemaModal.style.display = 'none';
+
+            alert('Cinema added successfully!');
+        }
+
+        function deleteCinema(id) {
+            if (confirm('Are you sure you want to delete this cinema?')) {
+                cinemas = cinemas.filter(cinema => cinema.id !== id);
+                renderTable();
+            }
+        }
+
+        function renderTable() {
+            cinemaTableBody.innerHTML = '';
+
+            if (cinemas.length === 0) {
+                cinemaTableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6" style="text-align: center; padding: 40px;">
+                            No cinemas added yet. Click the "Add Cinema" button to add one.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            cinemas.forEach(cinema => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td class="cid">CID-${cinema.id.toString().padStart(3, '0')}</td>
+                    <td>${cinema.name}</td>
+                    <td>${cinema.location}</td>
+                    <td class="facilities">
+                        ${cinema.facilities.map(facility =>
+                    `<span class="facility-tag">${facility}</span>`
+                ).join('')}
+                    </td>
+                    <td>
+                        <div class="poster">
+                            ${cinema.image ?
+                        `<img src="${cinema.image}" alt="${cinema.name}">` :
+                        '🏢'
+                    }
+                        </div>
+                    </td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="action-btn edit-btn" title="Edit">✏️</button>
+                            <button class="action-btn delete-btn" title="Delete" onclick="deleteCinema(${cinema.id})">🗑️</button>
+                        </div>
+                    </td>
+                `;
+
+                cinemaTableBody.appendChild(row);
+            });
+        }
+
+        // Initialize the table
+        renderTable();
+    </script>
+</body>

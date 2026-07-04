@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMax - Book Your Movie Tickets</title>
+    <!-- Bootstrap Css -->
+    <link rel="stylesheet" href="../assets/Bootstrap/css/bootstrap.min.css">
+    <!-- Common Css -->
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Left Side Header -->
+    <aside class="sidebar">
+        <a href="#" class="logo">Cine<span>Max</span></a>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#Cinemas"><i class="fas fa-map-marker-alt "></i><span>Cinemas</span></a>
+                </li>
+                <li><a href="#"><i class="fas fa-film"></i> <span>Movies</span></a></li>
+                <li><a class="active" href="#"><i class="fas fa-chair"></i><span>Seats</span></a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+            </ul>
+        </nav>
+        <div class="user-profile">
+            <div class="profile">
+                <div class="profile-img">A</div>
+                <div class="profile-info">
+                    <h4>Admin User</h4>
+                    <p>admin@cinema.com</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <main>
+        <!-- Cinemas Section -->
+        <section id="Cinemas">
+            <div class="title-head">
+                <h2 class="title-logo">Seats</h2>
+                <button type="button" class="btn title-button"><a href="#cinemaModal"
+                        class="text-decoration-none text-info">+ Add Seats</a></button>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>SID</th>
+                            <th>Cinema</th>
+                            <th>Movie</th>
+                            <th>Time Of Show</th>
+                            <th>Total Seats</th>
+                            <th>Price/Seat(s)</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cinemaTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script src="../assets/Bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>

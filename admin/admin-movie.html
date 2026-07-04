@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinemax - Book Your Movie Tickets</title>
+    <!-- Bootstrap Css -->
+    <link rel="stylesheet" href="../assets/Bootstrap/css/bootstrap.min.css">
+    <!-- Common Css -->
+    <link rel="stylesheet" href="../css/common.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../assets/Font Awesome/css/all.min.css">
+</head>
+
+<body>
+    <!-- Left Side Header -->
+    <aside class="sidebar">
+        <a href="#" class="logo">Cine<span>Max</span></a>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#movies"><i class="fas fa-map-marker-alt "></i><span>Cinemas</span></a></li>
+                <li><a class="active" href="#"><i class="fas fa-film"></i> <span>Movies</span></a></li>
+                <li><a href="#"><i class="fas fa-chair"></i><span>Seats</span></a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+            </ul>
+        </nav>
+        <div class="user-profile">
+            <div class="profile">
+                <div class="profile-img">A</div>
+                <div class="profile-info">
+                    <h4>Admin User</h4>
+                    <p>admin@movie.com</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <main>
+        <!-- Movie Section -->
+        <section id="Movie">
+            <div class="title-head">
+                <h2 class="title-logo">Movies</h2>
+                <button type="button" class="btn title-button"><a href="#movieModal"
+                        class="text-decoration-none text-info">+ Add Moive</a></button>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>MID</th>
+                            <th>Movie</th>
+                            <th>Description</th>
+                            <th>Cinema</th>
+                            <th>Time</th>
+                            <th>Poster</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="movieTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
+        <!-- Add Modal -->
+        <section>
+            <div class="modal mt-5" id="movieModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Add New Movie</h3>
+                            <button class="close-btn" id="closemovieModal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="movieForm">
+                                <div class="form-group">
+                                    <label class="form-lable" for="movieName">Movie Name</label>
+                                    <input type="text" class="form-controll" id="movieName"
+                                        placeholder="Enter movie name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-lable" for="movieLocation">Description</label>
+                                    <input type="text" class="form-controll" id="movieLocation"
+                                        placeholder="Enter movie Description" required>
+                                </div>
+                                <div>
+                                    <label class="form-lable" for="movieLocation">Select Cinema</label>
+                                    <select class="form-select form-controll" name="Select Cinema" required>
+                                        <option>Select Cinema</option>
+                                        <option value="1">Inox</option>
+                                        <option value="2">Rajhans</option>
+                                        <option value="3">Imperial</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="form-lable" for="movieLocation">Select Time</label>
+                                    <select class="form-select form-controll" name="Select Time" required>
+                                        <option>Select Time</option>
+                                        <option value="1">12:15 PM To 3:10 PM</option>
+                                        <option value="2">3:15 PM To 5:20 PM</option>
+                                        <option value="3">5:25 PM To 8:30 PM</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="file" id="fileInput" accept="image/*" required>
+                                    <label class="form-lable">Movie Image</label>
+                                    <div class="image-upload" id="uploadBox">
+                                        <p id="uploadText">Click to upload Movie image</p>
+                                        <img id="preview" alt="Uploaded image preview">
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="button" class="btnn btn-secondry" id="cancelmovie">Cancel</button>
+                                    <button type="submit" class="btnn btn-primar">Add Movie</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../assets/Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/Font Awesome/js/all.min.js"></script>
+    <script>
+        // Sample data for demonstration
+        letmovies = [
+            {
+                id: 1,
+                name: "CineMax Downtown",
+                location: "123 Main Street, City Center",
+                facilities: ["3D", "Dolby", "Food"],
+                image: null
+            },
+        ];
+        // Event Listeners
+        addmovieBtn.addEventListener('click', () => {
+           movieModal.style.display = 'flex';
+        });
+
+        closemovieModal.addEventListener('click', () => {
+           movieModal.style.display = 'none';
+        });
+
+        cancelmovie.addEventListener('click', () => {
+           movieModal.style.display = 'none';
+        });
+
+       movieImageUpload.addEventListener('click', () => {
+           movieImage.click();
+        });
+
+       movieForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            addmovie();
+        });
+
+        // Functions
+        function addmovie() {
+            const name = document.getElementById('movieName').value;
+            const location = document.getElementById('movieLocation').value;
+
+            // Get selected facilities
+            const facilities = [];
+            const facilityCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            facilityCheckboxes.forEach(checkbox => {
+                facilities.push(checkbox.value);
+            });
+
+            // Get image (in a real app, you would upload this to a server)
+            const imageFile =movieImage.files[0];
+            let imageUrl = '';
+            if (imageFile) {
+                imageUrl = URL.createObjectURL(imageFile);
+            }
+
+            const newmovie = {
+                id:movies.length > 0 ? Math.max(...movies.map(c => c.id)) + 1 : 1,
+                name,
+                location,
+                facilities,
+                image: imageUrl
+            };
+
+           movies.push(newmovie);
+            renderTable();
+           movieForm.reset();
+           movieModal.style.display = 'none';
+
+            alert('movie added successfully!');
+        }
+
+        function deletemovie(id) {
+            if (confirm('Are you sure you want to delete thismovie?')) {
+               movies =movies.filter(movie =>movie.id !== id);
+                renderTable();
+            }
+        }
+
+        function renderTable() {
+           movieTableBody.innerHTML = '';
+
+            if (movies.length === 0) {
+               movieTableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6" style="text-align: center; padding: 40px;">
+                            Nomovies added yet. Click the "Addmovie" button to add one.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+           movies.forEach(movie => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td class="cid">CID-${movie.id.toString().padStart(3, '0')}</td>
+                    <td>${movie.name}</td>
+                    <td>${movie.location}</td>
+                    <td class="facilities">
+                        ${movie.facilities.map(facility =>
+                    `<span class="facility-tag">${facility}</span>`
+                ).join('')}
+                    </td>
+                    <td>
+                        <div class="poster">
+                            ${movie.image ?
+                        `<img src="${movie.image}" alt="${movie.name}">` :
+                        '🏢'
+                    }
+                        </div>
+                    </td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="action-btn edit-btn" title="Edit">✏️</button>
+                            <button class="action-btn delete-btn" title="Delete" onclick="deletemovie(${movie.id})">🗑️</button>
+                        </div>
+                    </td>
+                `;
+
+               movieTableBody.appendChild(row);
+            });
+        }
+
+        // Initialize the table
+        renderTable();
+    </script>
+</body>

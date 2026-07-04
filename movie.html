@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ticket Factory — Demo</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="../css/movie.css">
+
+</head>
+<body>
+
+  <!-- Top navigation -->
+  <header class="topbar py-2">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-3">
+          <div class="brand d-flex align-items-center gap-2">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="filter: drop-shadow(0 1px 0 rgba(0,0,0,0.12));">
+              <rect x="2" y="4" width="20" height="16" rx="3" fill="#fff" opacity="0.12"></rect>
+              <path d="M6 8h12" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <span style="font-size:1.05rem">Ticket Factory🎟️</span>
+          </div>
+
+          <!-- main nav (hidden on very small) -->
+          <nav class="d-none d-md-flex gap-3 ms-3">
+            <a class="text-white text-decoration-none small" href="#">Home</a>
+            <a class="text-white text-decoration-none small" href="#">Movies</a>
+            <a class="text-white text-decoration-none small" href="#">Cinemas</a>
+            <a class="text-white text-decoration-none small" href="#">Plays</a>
+            <a class="text-white text-decoration-none small" href="#">Events</a>
+          </nav>
+        </div>
+
+        <!-- search and user -->
+        <div class="d-flex align-items-center gap-3">
+          <form class="d-none d-sm-block" role="search">
+            <div class="input-group input-group-sm">
+              <input class="form-control form-control-sm" type="search" placeholder="Search for Movies, Cinema and others..." aria-label="Search">
+              <button class="btn btn-sm btn-dark" type="submit">Search</button>
+            </div>
+          </form>
+
+          <div class="d-flex align-items-center gap-2">
+            <div class="text-white small d-none d-sm-block">roshan (gatty)</div>
+            <a class="btn btn-outline-light btn-sm" href="#">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Main content -->
+  <main class="py-5">
+    <div class="container">
+
+      <!-- Popular Cinemas -->
+      <div class="row mb-4">
+        <div class="col-12 d-flex align-items-center justify-content-between mb-2">
+          <h4 class="section-heading mb-0">Popular <span style="color:var(--brand-gold)">Cinemas</span></h4>
+          <a class="section-subtle" href="#">View All...</a>
+        </div>
+
+        <div class="col-12">
+          <div class="panel">
+            <div class="d-flex flex-wrap gap-3 align-items-start">
+              <!-- cinema card 1 -->
+              <div class="mini-card">
+                <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="INOX Raj Imperial">
+                <div class="caption">INOX Raj Imperial</div>
+              </div>
+
+              <!-- cinema card 2 -->
+              <div class="mini-card">
+                <img src="../assets/img/1 pic.jpg" alt="Roongta">
+                <div class="caption">Roongta</div>
+              </div>
+                <div class="mini-card">
+                <img src="../assets/img/2 pic.jpg" alt="Roongta">
+                <div class="caption">Roongta</div>
+              </div>
+               <div class="mini-card">
+                <img src="../assets/img/3 pic.jpg" alt="Roongta">
+                <div class="caption">Roongta</div>
+              </div>
+              <div class="mini-card">
+                <img src="../assets/img/pic 4.jpg" alt="Roongta">
+                <div class="caption">Roongta</div>
+              </div>
+              <div class="mini-card">
+                <img src="../assets/img/pic 5.jpg" alt="Roongta">
+                <div class="caption">Roongta</div>
+              </div>
+              <div class="mini-card">
+                <img src="../assets/img/pic 6.jpg" alt="Roongta">
+                <div class="caption">Roongta</div>
+              </div>
+              </div>
+              <!-- spacer to show large empty area like screenshot -->
+              <div class="flex-grow-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recommended Movies -->
+      <div class="row">
+        <div class="col-12 d-flex align-items-center justify-content-between mb-2">
+          <h4 class="section-heading mb-0">Recommended <span style="color:var(--brand-gold)">Movies</span></h4>
+          <a class="section-subtle" href="#">View All...</a>
+        </div>
+
+        <div class="col-12">
+          <div class="panel">
+            <div class="d-flex flex-wrap gap-4 align-items-start">
+              <!-- movie poster -->
+              <div class="poster-card">
+                <img src="../assets/img/m=1.jpg" alt="The Kerala Story Poster">
+              </div>
+              <div class="poster-card">
+                <img src="../assets/img/m=2.jpg" alt="The Kerala Story Poster">
+              </div>
+              <div class="poster-card">
+                <img src="../assets/img/m=3.jpg" alt="The Kerala Story Poster">
+              </div>
+              <div class="poster-card">
+                <img src="../assets/img/m=4.jpg" alt="The Kerala Story Poster">
+              </div>
+              <div class="poster-card">
+                <img src="../assets/img/m=5.jpg" alt="The Kerala Story Poster">
+              </div>
+              <div class="poster-card">
+                <img src="../assets/img/m=6.jpg" alt="The Kerala Story Poster">
+              </div>
+              <div class="poster-card">
+                <img src="../assets/img/m=7.jpg" alt="The Kerala Story Poster">
+              </div>
+              <div class="poster-card">
+                <img src="../assets/img/m=8.jpg" alt="The Kerala Story Poster">
+              </div>
+              <!-- large white area to right (to mimic screenshot spacing) -->
+              <div class="flex-grow-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer-vertical"></div>
+    </div>
+  </main>
+
+  <!-- Bootstrap JS (Optional: for any Bootstrap components) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

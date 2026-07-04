@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinemas | Ticket Factory</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f6f6f6;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      height: 100vh;
+      position: fixed;
+      background-color: #0d1b2a;
+      color: white;
+      padding-top: 30px;
+    }
+
+    .sidebar h4 {
+      text-align: center;
+      color: #fcbf49;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #cfd8dc;
+      padding: 12px 20px;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    .sidebar a:hover {
+      background-color: #1b263b;
+      color: #fcbf49;
+    }
+
+    /* Main content */
+    .main-content {
+      margin-left: 220px;
+      padding: 20px;
+    }
+
+    .navbar-custom {
+      background: linear-gradient(to right, #002855, #ffcc00);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+    }
+
+    .navbar-custom .btn {
+      background-color: #002855;
+      color: white;
+      border: none;
+    }
+
+    .navbar-custom .btn:hover {
+      background-color: #001d3d;
+    }
+
+    .table thead {
+      background-color: #f8f9fa;
+      color: #555;
+      font-weight: 600;
+    }
+
+    .poster-img {
+      width: 100px;
+      height: 60px;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    .action-icons i {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .action-icons i:hover {
+      color: #fcbf49;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h4>🎟️ Ticket Factory</h4>
+    <a href="#">Cinema</a>
+    <a href="#">Movie</a>
+    <a href="#">Seats</a>
+    <a href="#">Other...</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="navbar-custom d-flex justify-content-between align-items-center">
+      <h4 class="mb-0">Cinemas</h4>
+      <button class="btn btn-sm">Cinema +</button>
+    </div>
+
+    <div class="card mt-4 shadow-sm">
+      <div class="card-body">
+        <table class="table align-middle table-bordered text-center">
+          <thead>
+            <tr>
+              <th>NUMBER</th>
+              <th>CINEMA</th>
+              <th>LOCATION</th>
+              <th>FACILITIES</th>
+              <th>POSTER</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#566</td>
+              <td>INOX Raj Imperial</td>
+              <td>New City Light Rd, Anand Park, Bharthana, Surat, Gujarat 395007</td>
+              <td>Hotel, Food Zone, Parking, Game Zone, Box Office, Green Room</td>
+              <td><img src="../assets/img/2 pic.jpg" alt="Poster" class="poster-img"></td>
+              <td class="action-icons">
+                <i class="bi bi-pencil-square"></i>
+                <i class="bi bi-trash"></i>
+              </td>
+            </tr>
+            <tr>
+              <td>#444</td>
+              <td>Roongta</td>
+              <td>New City Light Rd, Anand Park, Bharthana, Surat, Gujarat 395007</td>
+              <td>Hotel, Food Zone, Parking, Game Zone, Box Office, Green Room</td>
+              <td><img src="../assets/img/3 pic.jpg" alt="Poster" class="poster-img"></td>
+              <td class="action-icons">
+                <i class="bi bi-pencil-square"></i>
+                <i class="bi bi-trash"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</body>
+</html>
